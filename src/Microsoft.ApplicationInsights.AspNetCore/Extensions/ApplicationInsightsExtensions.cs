@@ -1,8 +1,7 @@
-﻿using System.Linq;
-
-namespace Microsoft.Extensions.DependencyInjection
+﻿namespace Microsoft.Extensions.DependencyInjection
 {
     using System;
+    using System.Linq;
     using System.Collections.Generic;
     using AspNetCore.Builder;
     using Microsoft.ApplicationInsights;
@@ -126,7 +125,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             if (!IsApplicationInsightsAdded(services))
             {
-            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+                services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
                 services.AddSingleton<ITelemetryInitializer, AzureWebAppRoleEnvironmentTelemetryInitializer>();
                 services.AddSingleton<ITelemetryInitializer, DomainNameRoleInstanceTelemetryInitializer>();
